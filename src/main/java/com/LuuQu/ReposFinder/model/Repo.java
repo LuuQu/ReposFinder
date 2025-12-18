@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 public class Repo {
     private final String name;
-    @JsonIgnore
+    @Getter(onMethod_ = @JsonIgnore)
     private final boolean fork;
     private final String ownerLogin;
     @Setter
@@ -24,7 +24,7 @@ public class Repo {
             @JsonProperty("name") String name,
             @JsonProperty("owner") JsonNode owner,
             @JsonProperty("fork") boolean fork
-            ) {
+    ) {
         this.name = name;
         this.fork = fork;
         this.ownerLogin = owner != null && owner.has("login") ? owner.get("login").asString() : null;

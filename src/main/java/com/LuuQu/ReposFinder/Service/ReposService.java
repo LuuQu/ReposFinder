@@ -18,7 +18,7 @@ public class ReposService {
                 .filter(repo -> !repo.isFork())
                 .toList();
 
-        for(Repo repo : repos) {
+        for (Repo repo : repos) {
             repo.setBranches(githubClient.getBranches(username, repo.getName()));
         }
 

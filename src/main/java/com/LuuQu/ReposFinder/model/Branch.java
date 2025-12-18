@@ -14,7 +14,7 @@ public class Branch {
     public Branch(
             @JsonProperty("name") String name,
             @JsonProperty("commit") JsonNode commit
-            ) {
+    ) {
         this.name = name;
         this.sha = commit != null && commit.has("sha") ? commit.get("sha").asString() : null;
     }
